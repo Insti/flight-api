@@ -1,0 +1,6 @@
+*.swp
+.bundle
+vendor
+coverage
+cache/*
+log

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset="utf-8" />
+    <title>Flight Query</title>
+
+    <style>
+      .fixed { 
+        font-family: monospace; 
+        border: light-blue;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div>
+      Some flight info scraped from https://cph.dk - it's much prettier there.
+    </div>
+    <div class='instructions'>
+      You can search using a url: <span class='fixed'>search/[field]/[value]</span>
+      <br/>
+      <div>
+      Valid fields are: 
+      "all", "airline", "date", "destination", "expected", "flight_number", "gate", "source", "status", "terminal", "time", "timestamp"
+      </div>
+      It will return <span class='fixed'>json</span> formatted data that someone with frontend skills could use to make a nice looking page.
+    </div>
+
+    <div>
+      Examples:
+    </div>
+
+    <div>
+      <a href='search/destination/Copenhagen'>Arrivals</a>
+    </div>
+
+    <div>
+      <a href='search/source/Copenhagen'>Departures</a>
+    </div>
+
+    <div>
+      <a href='search/all/Landed'>Flights that have landed</a>
+    </div>
+
+    <div>
+      <a href='search/flight_number/FR7385'>A specific flight</a>
+    </div>
+
+    <div>
+      <a href='search/time/23:'>What's happening between 23:00 and midnight</a>
+    </div>
+
+    <div>
+      <a href='search/all/London'>Flights to and from London</a>
+    </div>
+
+    <div>
+      <a href='search/source/Frankfurt'>Flights from Frankfurt</a>
+    </div>
+
+    <div>
+      <a href='search/gate'>Flights for which we know which gate to go to</a>
+    </div>
+
+
+
+
+    <br/>
+    <div>
+      Data here is cached. so we're not requesting new data from the airport every time.<br/>
+      If you want to update you can <a href='scrape'>fetch new data.</a> (This will replace the old data)
+    </div>
+
+  </body>
+</html>

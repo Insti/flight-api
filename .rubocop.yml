@@ -1,0 +1,47 @@
+inherit_from: .rubocop_todo.yml
+
+# I've never seen one of these that wasn't obvious whether it was a regex or a
+# division I think syntax highlighting helps a lot here.
+Lint/AmbiguousRegexpLiteral:
+    Enabled: false
+
+# Sometimes // makes sense sometimes %r{} makes sense.
+# If we ever care a lot about consistency we can change this.
+Style/RegexpLiteral:
+  Enabled: false
+
+# https://github.com/rubocop-hq/ruby-style-guide#no-single-line-methods
+# https://rubocop.readthedocs.io/en/latest/cops_style/#styleemptymethod
+Style/EmptyMethod:
+   EnforcedStyle: expanded
+
+# https://rubocop.readthedocs.io/en/latest/cops_style/#stylenumericpredicate
+# Sometimes it makes sense to do it one way and sometimes the other way.
+Style/NumericPredicate:
+     Enabled: false
+
+# Arrays of symbols are fine, no need to obfuscate them with %i
+Style/SymbolArray:
+    EnforcedStyle: brackets
+
+# Arrays of strings are fine, no need to obfuscate them with %w
+Style/WordArray:
+    EnforcedStyle: brackets
+
+
+# When doing code coverage analysis it's useful for if statements to be on
+# multiple lines so you can see if the condition is ever met, so allow
+# multiline if statements even if they would fit on one line with a modifier.
+Style/IfUnlessModifier:
+    Enabled: false
+
+# My screen is wide.
+Metrics/LineLength:
+    Enabled: false
+
+# context blocks get big, so ignore these in specs
+Metrics/BlockLength:
+    Exclude:
+      -  'spec/**/*'
+      -  'Guardfile'
+
